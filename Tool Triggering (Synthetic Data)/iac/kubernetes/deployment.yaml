@@ -1,0 +1,27 @@
+# Synthetic Kubernetes manifest (intentionally insecure). Not a real workload.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synthetic-app
+  labels:
+    app: synthetic-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synthetic-app
+  template:
+    metadata:
+      labels:
+        app: synthetic-app
+    spec:
+      hostNetwork: true
+      containers:
+        - name: app
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          securityContext:
+            privileged: true
+            runAsUser: 0
+            allowPrivilegeEscalation: true
