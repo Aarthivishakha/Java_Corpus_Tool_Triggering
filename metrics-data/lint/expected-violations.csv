@@ -1,0 +1,7 @@
+file,rule,expected_minimum
+jv-076-domain/src/main/java/com/pramora/testable/metrics/LintLab.java,ConstantName (max_items),1
+jv-076-domain/src/main/java/com/pramora/testable/metrics/LintLab.java,MethodName (Compute_total),1
+jv-076-domain/src/main/java/com/pramora/testable/metrics/LintLab.java,UnusedLocalVariable (unusedValue),1
+jv-076-domain/src/main/java/com/pramora/testable/metrics/LintLab.java,NeedBraces,1
+jv-076-domain/src/main/java/com/pramora/testable/metrics/LintLab.java,WhitespaceAround,1
+jv-076-domain/src/main/java/com/pramora/testable/metrics/LintLab.java,CyclomaticComplexity (describe),1

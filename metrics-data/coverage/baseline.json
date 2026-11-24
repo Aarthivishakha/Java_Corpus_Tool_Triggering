@@ -1,0 +1,8 @@
+{
+  "description": "Synthetic coverage baseline for coverage-delta and test suite effectiveness tracking. Values are illustrative, taken from the JaCoCo totals of an earlier Java 11 run on this corpus.",
+  "branch": "JV_V21_MAVEN_SHADEDUBERJARRELOCATED_MICRO",
+  "line_coverage_pct": 79.15,
+  "branch_coverage_pct": 67.8,
+  "mutation_score_pct": 67.06,
+  "tests": 60
+}
