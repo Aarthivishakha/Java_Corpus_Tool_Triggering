@@ -1,0 +1,11 @@
+{
+  "description": "Expected definition counts for DefUseLab, for reporting validation.",
+  "class": "com.pramora.testable.metrics.DefUseLab",
+  "methods": {
+    "definitions":      { "variables": { "x": 2, "y": 2, "z": 1 } },
+    "multipleDefs":     { "variables": { "r": 4 } },
+    "crossFunction":    { "variables": { "base": 1, "result": 1 }, "calls": ["helper"] },
+    "unusedDefinition": { "variables": { "dead": 2, "live": 1 }, "never_used": ["dead"] },
+    "loopUse":          { "variables": { "total": 2, "cur": 1, "i": 2 } }
+  }
+}
