@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ruleset name="custom-rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+  <description>Custom rule used to validate custom-rule handling.</description>
+  <rule name="NoConsoleOutput"
+        language="java"
+        message="Do not write to the console; use a logger"
+        class="net.sourceforge.pmd.lang.rule.xpath.XPathRule">
+    <description>Flags System.out.println calls. LintLab.log is the exception and is suppressed.</description>
+    <priority>3</priority>
+    <properties>
+      <property name="xpath">
+        <value>//MethodCall[pmd-java:matchesSig('java.io.PrintStream#println(_)')]</value>
+      </property>
+    </properties>
+  </rule>
+</ruleset>
