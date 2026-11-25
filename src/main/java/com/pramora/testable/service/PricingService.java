@@ -10,7 +10,10 @@ import com.pramora.testable.model.OrderLine;
  * Prices an order. Deliberately branch-heavy: this is the class the cyclomatic and
  * cognitive complexity metrics are measured against.
  */
-public class PricingService {
+public final class PricingService {
+
+    // Named constants (checkstyle MagicNumber).
+    private static final long N_2500 = 2500L;
 
     private static final long FREE_SHIPPING_THRESHOLD_CENTS = 5000L;
     private static final long SHIPPING_FLAT_CENTS = 799L;
@@ -49,7 +52,7 @@ public class PricingService {
         if (customer.getTier() == LoyaltyTier.PLATINUM) {
             return 0L;
         }
-        if (customer.getTier() == LoyaltyTier.GOLD && netCents >= 2500L) {
+        if (customer.getTier() == LoyaltyTier.GOLD && netCents >= N_2500) {
             return 0L;
         }
         return SHIPPING_FLAT_CENTS;

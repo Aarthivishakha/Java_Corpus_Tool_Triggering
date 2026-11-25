@@ -1,7 +1,7 @@
 package com.pramora.testable.model;
 
 /** A single priced line on an order. */
-public class OrderLine {
+public final class OrderLine {
 
     private final String sku;
     private final int quantity;

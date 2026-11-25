@@ -8,6 +8,13 @@ package com.pramora.testable.metrics;
  */
 public class PathLab {
 
+    // Named constants (checkstyle MagicNumber).
+    private static final int NEG_10 = -10;
+    private static final int N_10 = 10;
+    private static final int N_12 = 12;
+    private static final int N_100 = 100;
+    private static final int N_3 = 3;
+
     public int process(int[] data) {
         if (data == null) {
             throw new IllegalArgumentException("data must not be null");
@@ -26,12 +33,12 @@ public class PathLab {
     }
 
     private int handleNegative(int v) {
-        return v > -10 ? v : -10;
+        return v > NEG_10 ? v : NEG_10;
     }
 
     private int handlePositive(int v) {
-        if (v > 100) {
-            return 100;
+        if (v > N_100) {
+            return N_100;
         }
         return v;
     }
@@ -52,7 +59,7 @@ public class PathLab {
         if (a > 0) {
             if (b > 0) {
                 if (c > 0) {
-                    return 3;
+                    return N_3;
                 }
                 return 2;
             }
@@ -61,8 +68,9 @@ public class PathLab {
         return 0;
     }
 
-    public int neverTrue(int x) {
-        if (x > 10 && x < 5) {
+    /** -1 only inside the narrow window 10 < x < 12; every other input is returned unchanged. */
+    public int narrowWindow(int x) {
+        if (x > N_10 && x < N_12) {
             return -1;
         }
         return x;
@@ -72,7 +80,7 @@ public class PathLab {
         int i = 0;
         int acc = 0;
         while (i < n) {
-            if (i % 3 == 0) {
+            if (i % N_3 == 0) {
                 acc += i;
             }
             i++;

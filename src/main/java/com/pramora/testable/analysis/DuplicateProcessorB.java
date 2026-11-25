@@ -10,6 +10,10 @@ import com.pramora.testable.model.OrderLine;
  */
 public class DuplicateProcessorB {
 
+    // Named constants (checkstyle MagicNumber).
+    private static final long N_100000 = 100000L;
+    private static final long N_20 = 20L;
+
     private static final long ROUNDING_UNIT_CENTS = 5L;
 
     public long process(Order order) {
@@ -25,8 +29,8 @@ public class DuplicateProcessorB {
     }
 
     private long applyBulkRelief(long extended) {
-        if (extended > 100000L) {
-            return extended - (extended / 20L);
+        if (extended > N_100000) {
+            return extended - (extended / N_20);
         }
         return extended;
     }

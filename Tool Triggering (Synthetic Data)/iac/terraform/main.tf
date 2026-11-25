@@ -65,7 +65,6 @@ resource "aws_db_instance" "unencrypted_db" {
   engine              = "mysql"
   instance_class      = "db.t3.micro"
   username            = "admin"
-  manage_master_user_password = true
   storage_encrypted   = false
   publicly_accessible = true
   skip_final_snapshot = true

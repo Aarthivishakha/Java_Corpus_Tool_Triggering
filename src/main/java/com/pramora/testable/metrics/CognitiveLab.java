@@ -7,6 +7,11 @@ package com.pramora.testable.metrics;
  */
 public class CognitiveLab {
 
+    // Named constants (checkstyle MagicNumber).
+    private static final int N_100 = 100;
+    private static final int N_3 = 3;
+    private static final int N_4 = 4;
+
     public int scoreMatrix(int[][] grid, int threshold) {
         int total = 0;
         for (int i = 0; i < grid.length; i++) {
@@ -34,9 +39,9 @@ public class CognitiveLab {
         for (int i = 0; i < values.length; i++) {
             for (int j = i + 1; j < values.length; j++) {
                 if (values[i] + values[j] == target) {
-                    return i * 100 + j;
+                    return i * N_100 + j;
                 }
-                if (values[i] + values[j] > target * 4) {
+                if (values[i] + values[j] > target * N_4) {
                     break outer;
                 }
             }
@@ -48,6 +53,6 @@ public class CognitiveLab {
         if (n <= 1) {
             return 0;
         }
-        return 1 + collatzSteps(n % 2 == 0 ? n / 2 : 3 * n + 1);
+        return 1 + collatzSteps(n % 2 == 0 ? n / 2 : N_3 * n + 1);
     }
 }

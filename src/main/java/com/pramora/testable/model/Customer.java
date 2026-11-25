@@ -1,7 +1,7 @@
 package com.pramora.testable.model;
 
 /** A customer, with the loyalty tier that drives discounting. */
-public class Customer {
+public final class Customer {
 
     private final String id;
     private final String name;

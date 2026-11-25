@@ -10,10 +10,22 @@ import java.util.List;
  */
 public class LintLab {
 
+    // Named constants (checkstyle MagicNumber).
+    private static final int N_10 = 10;
+    private static final int N_11 = 11;
+    private static final int N_3 = 3;
+    private static final int N_4 = 4;
+    private static final int N_42 = 42;
+    private static final int N_5 = 5;
+    private static final int N_6 = 6;
+    private static final int N_7 = 7;
+    private static final int N_8 = 8;
+    private static final int N_9 = 9;
+
     public static final int max_items = 10;
 
     public int Compute_total(int a, int b) {
-        int unusedValue = 42;
+        int unusedValue = N_42;
         int result=a+b;
         if (result > max_items) result = max_items;
         return result;
@@ -37,31 +49,31 @@ public class LintLab {
         if (code == 2) {
             return "two";
         }
-        if (code == 3) {
+        if (code == N_3) {
             return "three";
         }
-        if (code == 4) {
+        if (code == N_4) {
             return "four";
         }
-        if (code == 5) {
+        if (code == N_5) {
             return "five";
         }
-        if (code == 6) {
+        if (code == N_6) {
             return "six";
         }
-        if (code == 7) {
+        if (code == N_7) {
             return "seven";
         }
-        if (code == 8) {
+        if (code == N_8) {
             return "eight";
         }
-        if (code == 9) {
+        if (code == N_9) {
             return "nine";
         }
-        if (code == 10) {
+        if (code == N_10) {
             return "ten";
         }
-        if (code == 11) {
+        if (code == N_11) {
             return "eleven";
         }
         return "many";

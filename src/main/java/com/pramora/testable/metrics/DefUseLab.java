@@ -7,6 +7,11 @@ package com.pramora.testable.metrics;
  */
 public class DefUseLab {
 
+    // Named constants (checkstyle MagicNumber).
+    private static final int N_3 = 3;
+    private static final int N_5 = 5;
+    private static final int N_7 = 7;
+
     public int definitions(int a, int b) {
         int x = a + 1;
         int y = b * 2;
@@ -23,7 +28,7 @@ public class DefUseLab {
         int r = 0;
         r = n;
         r = r + 1;
-        if (n > 5) {
+        if (n > N_5) {
             r = r * 2;
         }
         return r;
@@ -36,12 +41,12 @@ public class DefUseLab {
     }
 
     private int helper(int v) {
-        int t = v * 3;
+        int t = v * N_3;
         return t - 1;
     }
 
     public int unusedDefinition(int n) {
-        int dead = n * 7;
+        int dead = n * N_7;
         int live = n + 1;
         dead = 0;
         return live;

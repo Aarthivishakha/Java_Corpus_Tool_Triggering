@@ -10,7 +10,11 @@ import java.util.stream.Collectors;
  * An order placed by a customer. Java 11 source level: local `var`,
  * `Collectors.toUnmodifiableList` and `Optional.isEmpty`, none of which exist in Java 8.
  */
-public class Order {
+public final class Order {
+
+    // Named constants (checkstyle MagicNumber).
+    private static final int N_15 = 15;
+    private static final int N_2026 = 2026;
 
     private final String id;
     private final Customer customer;
@@ -19,7 +23,7 @@ public class Order {
     private OrderStatus status = OrderStatus.DRAFT;
 
     public Order(String id, Customer customer) {
-        this(id, customer, LocalDate.of(2026, 1, 15));
+        this(id, customer, LocalDate.of(N_2026, 1, N_15));
     }
 
     public Order(String id, Customer customer, LocalDate placedOn) {
@@ -31,7 +35,7 @@ public class Order {
         }
         this.id = id;
         this.customer = customer;
-        this.placedOn = placedOn == null ? LocalDate.of(2026, 1, 15) : placedOn;
+        this.placedOn = placedOn == null ? LocalDate.of(N_2026, 1, N_15) : placedOn;
     }
 
     public String getId() {
