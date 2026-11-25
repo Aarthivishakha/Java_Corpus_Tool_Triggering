@@ -1,6 +1,6 @@
 {
-  "description": "Synthetic coverage baseline for coverage-delta and test suite effectiveness tracking. Values mirror the JaCoCo totals of an earlier Java 11 run on this corpus.",
-  "branch": "JV_V11_MAVEN_THINJAR_MONO",
+  "description": "Synthetic coverage baseline for coverage-delta and test suite effectiveness tracking. Values mirror the JaCoCo totals of an earlier Java run on this corpus.",
+  "branch": "JV_V9_MAVEN_THINJAR_MONO",
   "line_coverage_pct": 79.15,
   "branch_coverage_pct": 67.8,
   "mutation_score_pct": 67.06,
