@@ -32,7 +32,7 @@ public class DuplicateProcessorC {
     }
 
     private long round(long cents) {
-        var remainder = cents % ROUNDING_UNIT_CENTS;
+        long remainder = cents % ROUNDING_UNIT_CENTS;
         if (remainder == 0L) {
             return cents;
         }
