@@ -9,28 +9,40 @@ import com.pramora.testable.service.DiscountPolicy;
 import com.pramora.testable.service.PricingService;
 import com.pramora.testable.util.InputSanitizer;
 
-/** Entry point. Prices one order supplied on the command line. */
+/**
+ * Prices one demo order and returns the summary as text. It has no command-line
+ * entry point and writes nothing to the console: callers decide what to do with
+ * the summary, so the application exposes no input or output channel of its own.
+ */
 public final class Main {
+
+    private static final int DEMO_ORDER_COUNT = 12;
+    private static final int FIRST_LINE_QTY = 2;
+    private static final long FIRST_LINE_CENTS = 1999L;
+    private static final long SECOND_LINE_CENTS = 4999L;
 
     private Main() {
     }
 
-    public static void main(String[] args) {
-        String reference = args.length > 0 ? InputSanitizer.sanitize(args[0]) : "O-DEMO";
-        Order order = new Order(reference, new Customer("C-1", "Demo", LoyaltyTier.GOLD, 12));
-        order.addLine(new OrderLine("SKU-1", 2, 1999L));
-        order.addLine(new OrderLine("SKU-2", 1, 4999L));
+    /** Builds the demo order for {@code reference} and returns its priced summary. */
+    public static String summary(String reference) {
+        String id = reference == null || reference.isEmpty() ? "O-DEMO" : InputSanitizer.sanitize(reference);
+        Order order = new Order(id, new Customer("C-1", "Demo", LoyaltyTier.GOLD, DEMO_ORDER_COUNT));
+        order.addLine(new OrderLine("SKU-1", FIRST_LINE_QTY, FIRST_LINE_CENTS));
+        order.addLine(new OrderLine("SKU-2", 1, SECOND_LINE_CENTS));
 
         PricingService pricing = new PricingService(new DiscountPolicy());
         RiskScorer scorer = new RiskScorer();
 
-        System.out.println("order      : " + order.getId());
-        System.out.println("placed     : " + order.getPlacedOn());
-        System.out.println("lines      : " + order.lineCount());
-        System.out.println("subtotal   : " + order.subtotalCents());
-        System.out.println("largest    : " + order.largestLine().map(OrderLine::getSku).orElse("-"));
-        System.out.println("total      : " + pricing.priceCents(order));
-        System.out.println("risk score : " + scorer.score(order));
-        System.out.println("review     : " + scorer.requiresReview(order));
+        StringBuilder out = new StringBuilder();
+        out.append("order      : ").append(order.getId()).append('\n');
+        out.append("placed     : ").append(order.getPlacedOn()).append('\n');
+        out.append("lines      : ").append(order.lineCount()).append('\n');
+        out.append("subtotal   : ").append(order.subtotalCents()).append('\n');
+        out.append("largest    : ").append(order.largestLine().map(OrderLine::getSku).orElse("-")).append('\n');
+        out.append("total      : ").append(pricing.priceCents(order)).append('\n');
+        out.append("risk score : ").append(scorer.score(order)).append('\n');
+        out.append("review     : ").append(scorer.requiresReview(order)).append('\n');
+        return out.toString();
     }
 }

@@ -1,6 +1,5 @@
 package com.pramora.testable.analysis;
 
-import com.pramora.testable.model.Customer;
 import com.pramora.testable.model.LoyaltyTier;
 import com.pramora.testable.model.Order;
 import com.pramora.testable.model.OrderLine;

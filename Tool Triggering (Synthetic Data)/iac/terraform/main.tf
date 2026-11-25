@@ -12,11 +12,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-variable "db_password" {
-  type      = string
-  sensitive = true
-}
-
 # Open firewall rule: SSH and RDP open to the whole internet
 resource "aws_security_group" "open_admin_ports" {
   name        = "open-admin-ports"
@@ -70,7 +65,7 @@ resource "aws_db_instance" "unencrypted_db" {
   engine              = "mysql"
   instance_class      = "db.t3.micro"
   username            = "admin"
-  password            = var.db_password
+  manage_master_user_password = true
   storage_encrypted   = false
   publicly_accessible = true
   skip_final_snapshot = true

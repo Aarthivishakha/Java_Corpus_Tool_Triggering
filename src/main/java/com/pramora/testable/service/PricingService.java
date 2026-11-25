@@ -2,7 +2,6 @@ package com.pramora.testable.service;
 
 import java.util.function.LongUnaryOperator;
 
-import com.pramora.testable.model.Customer;
 import com.pramora.testable.model.LoyaltyTier;
 import com.pramora.testable.model.Order;
 import com.pramora.testable.model.OrderLine;

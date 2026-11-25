@@ -19,9 +19,15 @@ public class LintLab {
         return result;
     }
 
-    @SuppressWarnings("PMD.SystemPrintln")
+    private final StringBuilder messages = new StringBuilder();
+
+    /** Records a message instead of printing it, so the class has no console output. */
     public void log(String message) {
-        System.out.println(message); // NOPMD - allowed here, covered by the custom rule exception
+        messages.append(message).append('\n');
+    }
+
+    public String logged() {
+        return messages.toString();
     }
 
     public String describe(int code) {
